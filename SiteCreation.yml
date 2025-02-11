@@ -22,4 +22,4 @@ steps:
       -DotNetVersion "$(DotNetVersion)"
       -ServiceAccount "$(ServiceAccount)"
       -ServicePassword "$(ServicePassword)"
-    pwsh: true
+    pwsh: false
