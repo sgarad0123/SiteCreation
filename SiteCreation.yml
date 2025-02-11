@@ -4,6 +4,8 @@ trigger:
 pool:
   name: ADO
   vmImage: 'windows-latest'
+  demands: 
+    - Agent.Name -equals ADO2
 
 variables:
 - group: IIS-Config  # Link to the Variable Group
