@@ -2,6 +2,7 @@ trigger:
 - main  # Change this to your default branch
 
 pool:
+  name: ADO
   vmImage: 'windows-latest'
 
 variables:
