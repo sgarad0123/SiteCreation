@@ -1,0 +1,24 @@
+trigger:
+- main  # Change this to your default branch
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: IIS-Config  # Link to the Variable Group
+
+steps:
+- task: PowerShell@2
+  displayName: "Setup IIS Application and App Pool"
+  inputs:
+    targetType: 'filePath'
+    filePath: '$(Build.SourcesDirectory)/setup-iis.ps1'
+    arguments: >
+      -appName "$(appName)"
+      -domainName "$(domainName)"
+      -siteRoot "$(siteRoot)"
+      -AppPoolName "$(AppPoolName)"
+      -DotNetVersion "$(DotNetVersion)"
+      -ServiceAccount "$(ServiceAccount)"
+      -ServicePassword "$(ServicePassword)"
+    pwsh: true
